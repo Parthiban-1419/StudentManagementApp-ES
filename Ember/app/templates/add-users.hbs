@@ -1,0 +1,24 @@
+{{page-title "AddUsers"}}
+
+<div id="body"><br>
+    <LinkTo style="color:white; text-decoration: none;" @route="index">Log in</LinkTo>
+    <center><br>
+        <h3 style="color:white">Create account</h3><br>
+        <div class="container" style="width: 300px"><br><br>
+            <input type="text" id="logInName" placeholder="Login name" {{on 'change' this.checkloginName}}><br><br>
+            <input type="text" id="firstName" placeholder="First name"><br><br>
+            <input type="text" id="middleName" placeholder="Middle name"><br><br>
+            <input type="text" id="lastName" placeholder="Last name"><br><br>
+            <select name="role" id="role" placeholder="Role">
+                <option name="role" value="5">CEO</option>
+                <option name="role" value="1">Principal</option>
+                <option name="role" value="2">HOD</option>
+                <option name="role" value="3">Staff</option>
+                <option name="role" value="4">Student</option>
+            </select><br><br>
+            <input type="password" id="password" placeholder="Password"><br><br>
+            <input type="password" id="cPassword" placeholder="Conform password"><br><br>
+        </div><br>
+        <button type="button" {{action 'createAccount'}}>Create</button>
+    </center>
+</div>

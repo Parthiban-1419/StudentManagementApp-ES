@@ -1,0 +1,18 @@
+{{page-title "AddStudent"}}
+
+<div id="body"><br>
+    <LinkTo  style="color:white; text-decoration: none" @route="index">View Marks</LinkTo>
+    <center><br>
+        <h3 style="color:white">Add student</h3><br>
+        <div class="container" style="width: 100px;"><br><br><br>
+            <input style="width: 100px; height: 30px;" type="number" id="number" placeholder="Reg number"><br><br>
+            <input style="width: 100px; height: 30px;" type="text" id="name" placeholder="Student name"><br><br>
+            <select style="width: 100px; height: 30px;" name="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br><br>
+            <input style="width: 100px; height: 30px;" type="date" id="dob"><br><br>
+            <button type="button" {{action 'addStudent'}}>Add</button>
+        </div>
+    </center>
+</div>

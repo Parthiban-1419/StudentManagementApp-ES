@@ -1,0 +1,33 @@
+{{page-title "ViewLog"}}
+<style>
+    td{
+        border: solid;
+    }
+</style>
+<h3>Filter : </h3>
+<select id="field" {{on 'change' this.applyFilter }}>
+    <option value="userId">User</option>
+    <option value="operation">Operation</option>
+</select>
+<input type="text" id="value" placeholder="Value" {{on 'keyup' this.applyFilter}}>
+{{!-- <input type="text" id="end" placeholder="End value">
+<button {{action 'applyFilter'}}>Apply</button> --}}
+<table>
+    <tr>
+        <th>User</th>
+        <th>Operation</th>
+        <th>Student Id</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    {{#each this.data as | json|}}
+        <tr>
+            <td><center>{{json.userId}}</center></td>
+            <td><center>{{json.operation}}</center></td>
+            <td><center>{{json.studentId}}</center></td>
+            <td><center>{{this.getDate json.time}}</center></td>
+            <td><center>{{this.getTime json.time}}</center></td>
+        </tr>
+    {{/each}}
+</table><br><br>
+<center><LinkTo @route="index">Back</LinkTo></center>

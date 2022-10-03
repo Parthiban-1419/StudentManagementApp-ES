@@ -1,0 +1,43 @@
+{{page-title "Home"}}
+
+<div id="body"><br>
+    <LinkTo id="logs" style="color:white; text-decoration: none; display: none;" @route="view-log">View logs / </LinkTo>
+    {{!-- <LinkTo id="addStudent" style="color:white; text-decoration: none; display: none;" @route="add-student">Add student / </LinkTo>` --}}
+    <a style="color:white; text-decoration: none" href="http://localhost:8080/StudentManagementApp/Logout.jsp">Log out</a>
+    <center><br>
+        <h3 style="color:white">Mark detail</h3><br>
+        <div class="container"><br><br><br>
+            <table>
+                <tr id="head">
+                    <th>Reg number</th>
+                    <th>Tamil</th>
+                    <th>English</th>
+                    <th>Maths</th>
+                    <th>Science</th>
+                    <th>Social</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                    <td><button type="button" {{action 'addRow'}}  id="add"><i class="fa fa-plus"></i></button></td>
+                </tr>
+
+                    {{#each this.model as |json|}}
+                        <tr id={{json.reg_number}} modified="false">
+                            <th><center><span type="number" id="regNumber">{{json.reg_number}}</span></center></th>
+                            <th><center><input type="number" id="tamil" value={{json.tamil}} min="0" max="100" disabled></center></th>
+                            <th><center><input type="number" id="english" value={{json.english}} min="0" max="100" disabled></center></th>
+                            <th><center><input type="number" id="maths" value={{json.maths}} min="0" max="100" disabled></center></th>
+                            <th><center><input type="number" id="science" value={{json.science}} min="0" max="100" disabled></center></th>
+                            <th><center><input type="number" id="social" value={{json.social}} min="0" max="100" disabled></center></th>
+                            <th><center><span type="number" id="total" >{{json.total}}</span></center></th>
+                            <th><center><span type="number" id="percentage" >{{json.percentage}}</span></center></th>
+                            <td><button type="button" {{on 'click' (fn this.deleteRow json.reg_number)}} id="delete"><i class="fa fa-trash" disabled></i></button></td>
+                            <td><button type="button" {{on 'click' (fn this.editRow json.reg_number)}} id="edit"><i class="fa fa-edit" disabled></i></button></td>
+                        </tr>
+                    {{/each}}
+            </table><br><br>
+        </div><br><br>
+        {{#if this.edited}}
+            <button id="updateRows" type="button" {{action 'updateRows'}}>Update table</button>
+        {{/if}}
+    </center>
+</div>
